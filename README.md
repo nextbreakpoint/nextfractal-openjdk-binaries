@@ -1,10 +1,8 @@
 # nextfractal-openjdk-binaries
 
-Since there are many flavours of Java now days, NextFractal started providing an embedded Java JDK, to ensure users always have the correct Java runtime and libraries.
+Since there are many flavours of Java nowadays, NextFractal started providing an embedded Java JDK to ensure that users always have the correct Java runtime and libraries. This project provides the binaries required for assembling NextFractal's distribution package for Mac, Linux, and Window.
 
-This project provides the binaries required for assembling NextFractal's distribution package for Mac, Linux, and Window.
-
-The binaries are created using OpenJDK 11 code available on https://adoptopenjdk.net/.
+The binaries are currently based on OpenJDK 11 available on https://github.com/AdoptOpenJDK/openjdk-jdk11.
 
 
 ## How to create new binaries
