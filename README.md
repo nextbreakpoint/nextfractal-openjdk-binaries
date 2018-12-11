@@ -7,12 +7,12 @@ The binaries are currently based on OpenJDK 11 available on https://github.com/A
 
 ## How to create new binaries
 
-The process of creating binaries relays on the current build process of OpenJDK, therefore you can find the complete instruction [here](https://github.com/AdoptOpenJDK/openjdk-jdk11/blob/master/doc/building.md).
+The process of creating new JDK binaries relays on the current build process of OpenJDK, therefore you can find the complete instruction [here](https://github.com/AdoptOpenJDK/openjdk-jdk11/blob/master/doc/building.md).
 
 Below you can find the essential steps required for producing the binaries for Mac, Windows, Linux/Fedora and Linux/Debian.
 
 
-### Build binaries on Mac
+### Build JDK on Mac
 
 Verify you have installed Xcode (xcodebuild -version). We currently use Xcode 10.1 (Build version 10B61).
 
@@ -32,12 +32,12 @@ From openjdk-jdk11 root directory, execute the commands:
 
     make images
 
-The new jdk will be create in build/macosx-x86_64-normal-server-release/images/jdk.
+The new JDK will be create in build/macosx-x86_64-normal-server-release/images/jdk.
 
 The static libjli will be created at build/macosx-x86_64-normal-server-release/support/native/java.base/libjli_static.a.
 
 
-### Build binaries on Windows
+### Build JDK on Windows
 
 Verify you have installed [Visual Studio 2017](https://docs.microsoft.com/en-us/visualstudio/install/use-command-line-parameters-to-install-visual-studio?view=vs-2017) with C/C++ and UCRT.
 
@@ -63,10 +63,10 @@ From openjdk-jdk11 root directory, execute the commands:
 
     make images
 
-The new jdk will be create in build/windows-x86_64-normal-server-release/images/jdk.
+The new JDK will be create in build/windows-x86_64-normal-server-release/images/jdk.
 
 
-### Build binaries on Fedora
+### Build JDK on Fedora
 
 Install the build tools and libraries with commands:
 
@@ -89,10 +89,10 @@ From openjdk-jdk11 root directory, execute the commands:
 
     make images
 
-The new jdk will be create in build/linux-x86_64-normal-server-release/images/jdk.
+The new JDK will be create in build/linux-x86_64-normal-server-release/images/jdk.
 
 
-### Build binaries on Debian
+### Build JDK on Debian
 
 Install the build tools and libraries with commands:
 
@@ -114,14 +114,14 @@ From openjdk-jdk11 root directory, execute the commands:
 
     make images
 
-The new jdk will be create in build/linux-x86_64-normal-server-release/images/jdk.
+The new JDK will be create in build/linux-x86_64-normal-server-release/images/jdk.
 
 
-## Create JDK from binaries
+## Package JDK for NextFractal
 
-NextFractal requires Java JDK. The Java JDK image should contain only the minimum subset of the standard JDK required to run the application.
+NextFractal requires Java JDK. The Java JDK image should contain only the minimal subset of the standard JDK required to run the application.
 
-The minimum JDK can be created using jlink tool available since Java 11. The JDK image can be used as embedded runtime for executing NextFractal.
+The custom JDK can be created using jlink tool available since Java 11. The JDK image can be used as embedded runtime for executing NextFractal.
 
 
 ### Produce JDK image for Mac
