@@ -132,7 +132,7 @@ Define a variable like:
 
 Generate the JDK image with command:
 
-    $JDK_ROOT/bin/jlink --add-modules java.base,java.desktop,java.compiler,java.logging,jdk.compiler,jdk.zipfs,jdk.unsupported --output jdk-11.0.1 OUTPUT_DIR --strip-debug --compress 2 --no-header-files --no-man-pages
+    $JDK_ROOT/bin/jlink --add-modules java.base,java.desktop,java.compiler,java.logging,jdk.compiler,jdk.zipfs,jdk.unsupported --output jdk-11.0.1 --strip-debug --compress 2 --no-man-pages
 
 Compress the image into an archive:
 
@@ -151,7 +151,7 @@ Define a variable like:
 
 Generate the JDK image with command:
 
-    $JDK_ROOT/bin/jlink --add-modules java.base,java.desktop,java.compiler,java.logging,jdk.compiler,jdk.zipfs,jdk.unsupported --output jdk-11.0.1 --strip-debug --compress 2 --no-header-files --no-man-pages
+    $JDK_ROOT/bin/jlink --add-modules java.base,java.desktop,java.compiler,java.logging,jdk.compiler,jdk.zipfs,jdk.unsupported --output jdk-11.0.1 --strip-debug --compress 2 --no-man-pages
 
 Compress the image into an archive:
 
@@ -170,11 +170,11 @@ Define a variable like:
 
 Generate the JDK image with command:
 
-    $JDK_ROOT/bin/jlink --add-modules java.base,java.desktop,java.compiler,java.logging,jdk.compiler,jdk.zipfs,jdk.unsupported --output jdk-11.0.1 --strip-debug --compress 2 --no-header-files --no-man-pages
+    $JDK_ROOT/bin/jlink --add-modules java.base,java.desktop,java.compiler,java.logging,jdk.compiler,jdk.zipfs,jdk.unsupported --output jdk-11.0.1 --strip-debug --compress 2 --no-man-pages
 
 Compress the image into an archive:
 
-    zip -r -9 jdk-11.0.1.zip jdk-11.0.1
+    zip -r9 jdk-11.0.1.zip jdk-11.0.1
 
 Verify content of archive:
 
