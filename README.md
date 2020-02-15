@@ -45,7 +45,7 @@ Install Cygwin 2.5.x. Download setup tool from https://www.cygwin.com/:
 
 Install the build tools with command:
 
-    /cygdrive/c/Users/Administrator/Downloads/setup-x86_64 -q -P autoconf -P make -P unzip -P zip -P git -P wget    
+    /cygdrive/c/Users/Administrator/Downloads/setup-x86_64 -q -P autoconf -P make -P unzip -P zip -P git -P wget -P tar   
 
 Download and decompress the current OpenJDK distribution (can be version 10 or 11):
 
@@ -136,16 +136,22 @@ Generate the JDK image with command:
 
 Compress the image into an archive:
 
-    tar -cj -f nextfractal-jdk-11.0.2-0.tar.bz2 nextfractal-jdk-11.0.2-0
-    zip -r9 nextfractal-jdk-11.0.2-0.zip nextfractal-jdk-11.0.2-0
+    tar -cj -f osx-nextfractal-jdk-11.0.2-0.tar.bz2 nextfractal-jdk-11.0.2-0
+    zip -r9 osx-nextfractal-jdk-11.0.2-0.zip nextfractal-jdk-11.0.2-0
 
 Verify content of archive:
 
-    tar -tf nextfractal-jdk-11.0.2-0.tar.bz2
-    unzip -t nextfractal-jdk-11.0.2-0.zip
+    tar -tf osx-nextfractal-jdk-11.0.2-0.tar.bz2
+    unzip -t osx-nextfractal-jdk-11.0.2-0.zip
+
+Archive libjli_static:
+
+    cp $(pwd)/openjdk-jdk11/build/macosx-x86_64-normal-server-release/support/native/java.base/libjli_static.a .
+    tar -cj -f osx-libjli-static-11.0.2-0.tar.bz2 libjli_static.a
+    zip -r9 osx-libjli-static-11.0.2-0.zip libjli_static.a
 
 
-### Produce JDK image for Linux
+### Produce JDK image for Fedora
 
 Define a variable like:
 
@@ -157,13 +163,34 @@ Generate the JDK image with command:
 
 Compress the image into an archive:
 
-    tar -cj -f nextfractal-jdk-11.0.2-0.tar.bz2 nextfractal-jdk-11.0.2-0
-    zip -r9 nextfractal-jdk-11.0.2-0.zip nextfractal-jdk-11.0.2-0
+    tar -cj -f fedora-nextfractal-jdk-11.0.2-0.tar.bz2 nextfractal-jdk-11.0.2-0
+    zip -r9 fedora-nextfractal-jdk-11.0.2-0.zip nextfractal-jdk-11.0.2-0
 
 Verify content of archive:
 
-    tar -tf nextfractal-jdk-11.0.2-0.tar.bz2
-    unzip -t nextfractal-jdk-11.0.2-0.zip
+    tar -tf fedora-nextfractal-jdk-11.0.2-0.tar.bz2
+    unzip -t fedora-nextfractal-jdk-11.0.2-0.zip
+
+
+### Produce JDK image for Debian
+
+Define a variable like:
+
+    export JDK_ROOT=$(pwd)/openjdk-jdk11/build/linux-x86_64-normal-server-release/images/jdk
+
+Generate the JDK image with command:
+
+    $JDK_ROOT/bin/jlink --add-modules java.base,java.sql,java.desktop,java.compiler,java.logging,jdk.compiler,jdk.zipfs,jdk.unsupported --output nextfractal-jdk-11.0.2-0 --strip-debug --compress 2 --no-man-pages
+
+Compress the image into an archive:
+
+    tar -cj -f debian-nextfractal-jdk-11.0.2-0.tar.bz2 nextfractal-jdk-11.0.2-0
+    zip -r9 debian-nextfractal-jdk-11.0.2-0.zip nextfractal-jdk-11.0.2-0
+
+Verify content of archive:
+
+    tar -tf debian-nextfractal-jdk-11.0.2-0.tar.bz2
+    unzip -t debian-nextfractal-jdk-11.0.2-0.zip
 
 
 ### Produce JDK image for Windows
@@ -178,8 +205,10 @@ Generate the JDK image with command:
 
 Compress the image into an archive:
 
-    zip -r9 nextfractal-jdk-11.0.2-0.zip nextfractal-jdk-11.0.2-0
+    tar -cj -f windows-nextfractal-jdk-11.0.2-0.tar.bz2 nextfractal-jdk-11.0.2-0
+    zip -r9 windows-nextfractal-jdk-11.0.2-0.zip nextfractal-jdk-11.0.2-0
 
 Verify content of archive:
 
-    unzip -t nextfractal-jdk-11.0.2-0.zip
+    tar -tf windows-nextfractal-jdk-11.0.2-0.tar.bz2
+    unzip -t windows-nextfractal-jdk-11.0.2-0.zip
