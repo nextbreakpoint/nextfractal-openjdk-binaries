@@ -18,9 +18,9 @@ Verify you have installed Xcode (xcodebuild -version). We currently use Xcode 10
 
 Download and decompress the current OpenJDK distribution (can be version 10 or 11):
 
-    wget https://download.java.net/java/GA/jdk11/13/GPL/openjdk-11.0.1_osx-x64_bin.tar.gz
+    curl -O https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_osx-x64_bin.tar.gz
 
-    tar xvf openjdk-11.0.1_osx-x64_bin.tar.gz
+    tar xvf openjdk-11.0.2_osx-x64_bin.tar.gz
 
 Clone the source code of OpenJDK 11:
 
@@ -28,7 +28,7 @@ Clone the source code of OpenJDK 11:
 
 From openjdk-jdk11 root directory, execute the commands:
 
-    bash configure --with-boot-jdk=$(pwd)/../jdk-11.0.1.jdk/Contents/Home --with-version-pre=NextFractal --with-vendor-name=NextBreakpoint --with-version-string=11.0.1+0 --with-vendor-url=https://nextbreakpoint.com
+    bash configure --with-boot-jdk=$(pwd)/../jdk-11.0.2.jdk/Contents/Home --with-version-pre=NextFractal --with-vendor-name=NextBreakpoint --with-version-string=11.0.2+0 --with-vendor-url=https://nextbreakpoint.com
 
     make images
 
@@ -49,9 +49,9 @@ Install the build tools with command:
 
 Download and decompress the current OpenJDK distribution (can be version 10 or 11):
 
-    wget https://download.java.net/java/GA/jdk11/13/GPL/openjdk-11.0.windows-x64_bin.zip
+    wget https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_windows-x64_bin.zip
 
-    unzip openjdk-11.0.windows-x64_bin.zip
+    unzip openjdk-11.0.2_windows-x64_bin.zip
 
 Clone the source code of OpenJDK 11:
 
@@ -59,7 +59,7 @@ Clone the source code of OpenJDK 11:
 
 From openjdk-jdk11 root directory, execute the commands:
 
-    bash configure --with-boot-jdk=$(pwd)/../jdk-11.0.1.jdk/Contents/Home --disable-warnings-as-errors --with-version-pre=NextFractal --with-vendor-name=NextBreakpoint --with-version-string=11.0.1+0 --with-vendor-url=https://nextbreakpoint.com
+    bash configure --with-boot-jdk=$(pwd)/../jdk-11.0.2 --disable-warnings-as-errors --with-version-pre=NextFractal --with-vendor-name=NextBreakpoint --with-version-string=11.0.2+0 --with-vendor-url=https://nextbreakpoint.com
 
     make images
 
@@ -75,9 +75,9 @@ Install the build tools and libraries with commands:
 
 Download and decompress the current OpenJDK distribution (can be version 10 or 11):
 
-    wget https://download.java.net/java/GA/jdk11/13/GPL/openjdk-11.0.1_linux-x64_bin.tar.gz
+    wget https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz
 
-    tar xvf openjdk-11.0.1_linux-x64_bin.tar.gz
+    tar xvf openjdk-11.0.2_linux-x64_bin.tar.gz
 
 Clone the source code of OpenJDK 11:
 
@@ -85,7 +85,7 @@ Clone the source code of OpenJDK 11:
 
 From openjdk-jdk11 root directory, execute the commands:
 
-    bash configure --with-boot-jdk=$(pwd)/../jdk-11.0.1.jdk/Contents/Home --disable-warnings-as-errors --with-version-pre=NextFractal --with-vendor-name=NextBreakpoint --with-version-string=11.0.1+0 --with-vendor-url=https://nextbreakpoint.com
+    bash configure --with-boot-jdk=$(pwd)/../jdk-11.0.2 --disable-warnings-as-errors --with-version-pre=NextFractal --with-vendor-name=NextBreakpoint --with-version-string=11.0.2+0 --with-vendor-url=https://nextbreakpoint.com
 
     make images
 
@@ -100,9 +100,9 @@ Install the build tools and libraries with commands:
 
 Download and decompress the current OpenJDK distribution (can be version 10 or 11):
 
-    wget https://download.java.net/java/GA/jdk11/13/GPL/openjdk-11.0.1_linux-x64_bin.tar.gz
+    wget https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz
 
-    tar xvf openjdk-11.0.1_linux-x64_bin.tar.gz
+    tar xvf openjdk-11.0.2_linux-x64_bin.tar.gz
 
 Clone the source code of OpenJDK 11:
 
@@ -110,7 +110,7 @@ Clone the source code of OpenJDK 11:
 
 From openjdk-jdk11 root directory, execute the commands:
 
-    bash configure --with-boot-jdk=$(pwd)/../jdk-11.0.1.jdk/Contents/Home --disable-warnings-as-errors --with-version-pre=NextFractal --with-vendor-name=NextBreakpoint --with-version-string=11.0.1+0 --with-vendor-url=https://nextbreakpoint.com
+    bash configure --with-boot-jdk=$(pwd)/../jdk-11.0.2 --disable-warnings-as-errors --with-version-pre=NextFractal --with-vendor-name=NextBreakpoint --with-version-string=11.0.2+0 --with-vendor-url=https://nextbreakpoint.com
 
     make images
 
@@ -128,54 +128,58 @@ The custom JDK can be created using jlink tool available since Java 11. The JDK 
 
 Define a variable like:
 
-    export JDK_ROOT=<path_of_openjdk>/build/macosx-x86_64-normal-server-release/images/jdk
+    export JDK_ROOT=$(pwd)/openjdk-jdk11/build/macosx-x86_64-normal-server-release/images/jdk
 
 Generate the JDK image with command:
 
-    $JDK_ROOT/bin/jlink --add-modules java.base,java.desktop,java.compiler,java.logging,jdk.compiler,jdk.zipfs,jdk.unsupported --output jdk-11.0.1 --strip-debug --compress 2 --no-man-pages
+    $JDK_ROOT/bin/jlink --add-modules java.base,java.sql,java.desktop,java.compiler,java.logging,jdk.compiler,jdk.zipfs,jdk.unsupported --output nextfractal-jdk-11.0.2-0 --strip-debug --compress 2 --no-man-pages
 
 Compress the image into an archive:
 
-    tar -cj -f jdk-11.0.1.tar.bz2 jdk-11.0.1
+    tar -cj -f nextfractal-jdk-11.0.2-0.tar.bz2 nextfractal-jdk-11.0.2-0
+    zip -r9 nextfractal-jdk-11.0.2-0.zip nextfractal-jdk-11.0.2-0
 
 Verify content of archive:
 
-    tar -tf jdk-11.0.1.tar.bz2
+    tar -tf nextfractal-jdk-11.0.2-0.tar.bz2
+    unzip -t nextfractal-jdk-11.0.2-0.zip
 
 
 ### Produce JDK image for Linux
 
 Define a variable like:
 
-    export JDK_ROOT=<path_of_openjdk>/build/linux-x86_64-normal-server-release/images/jdk
+    export JDK_ROOT=$(pwd)/openjdk-jdk11/build/linux-x86_64-normal-server-release/images/jdk
 
 Generate the JDK image with command:
 
-    $JDK_ROOT/bin/jlink --add-modules java.base,java.desktop,java.compiler,java.logging,jdk.compiler,jdk.zipfs,jdk.unsupported --output jdk-11.0.1 --strip-debug --compress 2 --no-man-pages
+    $JDK_ROOT/bin/jlink --add-modules java.base,java.sql,java.desktop,java.compiler,java.logging,jdk.compiler,jdk.zipfs,jdk.unsupported --output nextfractal-jdk-11.0.2-0 --strip-debug --compress 2 --no-man-pages
 
 Compress the image into an archive:
 
-    tar -cj -f jdk-11.0.1.tar.bz2 jdk-11.0.1
+    tar -cj -f nextfractal-jdk-11.0.2-0.tar.bz2 nextfractal-jdk-11.0.2-0
+    zip -r9 nextfractal-jdk-11.0.2-0.zip nextfractal-jdk-11.0.2-0
 
 Verify content of archive:
 
-    tar -tf jdk-11.0.1.tar.bz2
+    tar -tf nextfractal-jdk-11.0.2-0.tar.bz2
+    unzip -t nextfractal-jdk-11.0.2-0.zip
 
 
 ### Produce JDK image for Windows
 
 Define a variable like:
 
-    export JDK_ROOT=<path_of_openjdk>/build/windows-x86_64-normal-server-release/images/jdk
+    export JDK_ROOT=$(pwd)/openjdk-jdk11/build/windows-x86_64-normal-server-release/images/jdk
 
 Generate the JDK image with command:
 
-    $JDK_ROOT/bin/jlink --add-modules java.base,java.desktop,java.compiler,java.logging,jdk.compiler,jdk.zipfs,jdk.unsupported --output jdk-11.0.1 --strip-debug --compress 2 --no-man-pages
+    $JDK_ROOT/bin/jlink --add-modules java.base,java.sql,java.desktop,java.compiler,java.logging,jdk.compiler,jdk.zipfs,jdk.unsupported --output nextfractal-jdk-11.0.2-0 --strip-debug --compress 2 --no-man-pages
 
 Compress the image into an archive:
 
-    zip -r9 jdk-11.0.1.zip jdk-11.0.1
+    zip -r9 nextfractal-jdk-11.0.2-0.zip nextfractal-jdk-11.0.2-0
 
 Verify content of archive:
 
-    unzip -t jdk-11.0.1.zip
+    unzip -t nextfractal-jdk-11.0.2-0.zip
