@@ -18,7 +18,7 @@ Verify you have installed Xcode (xcodebuild -version). We currently use Xcode 10
 
 Download and decompress the current OpenJDK distribution (can be version 10 or 11):
 
-    curl -O https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_osx-x64_bin.tar.gz
+    wget https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_osx-x64_bin.tar.gz
 
     tar xvf openjdk-11.0.2_osx-x64_bin.tar.gz
 
