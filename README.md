@@ -45,7 +45,7 @@ Install Cygwin 2.5.x. Download setup tool from https://www.cygwin.com/:
 
 Install the build tools with command:
 
-    /cygdrive/c/Users/Administrator/Downloads/setup-x86_64 -q -P autoconf -P make -P unzip -P zip -P git -P wget -P tar   
+    /cygdrive/c/Users/Administrator/Downloads/setup-x86_64 -q -P autoconf -P make -P unzip -P zip -P git -P wget -P tar -P gnupg
 
 Download and decompress the current OpenJDK distribution (can be version 10 or 11):
 
